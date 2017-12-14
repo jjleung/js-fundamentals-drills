@@ -5,12 +5,12 @@
  * @param {Array} // [1,2,3]
  * @return {Array} // [2,4,6]
  */
-var doubleArray = function(arr) {
+function doubleArray(arr) {
   var result = [];
   for (var i = 0; i < arr.length; i++) {
-    result.push(arr[i] * 2) 
+    result.push(arr[i] * 2);
   }
-  return result
+  return result;
 }
 
 /* #sumArrays
@@ -21,7 +21,16 @@ var doubleArray = function(arr) {
  * @param {Array}
  * @return {Bool}
  */
-var sumArrays;
+function sumArrays(arr1, arr2){
+  var total = 0;
+  for (var i = 0; i < arr1.length; i++){
+    total += arr1[i];
+  }
+  for (var j = 0; j < arr2.length; j++){
+    total += arr2[j];
+  }
+  return total;
+}
 
 /* #stringCount
  *
@@ -379,8 +388,8 @@ var tupleConvertToObject;
 
 
 module.exports = {
-  doubleArray: null,
-  sumArrays: null, 
+  doubleArray: doubleArray,
+  sumArrays: sumArrays, 
   stringCount: null,
   arrayLength: null,
   countAll: null,
