@@ -216,7 +216,13 @@ var moreThanTenLetters = function(arr){
  * @param {Array}
  * @return {Number}
  */
-var multiplyAll;
+var multiplyAll = function(arr){
+  let prod = 1;
+  for(let i = 0; i < arr.length; i++){
+    prod = prod*arr[i];
+  }
+  return prod;
+}
 
 /* #getKeys
  *
@@ -225,7 +231,9 @@ var multiplyAll;
  * @param {Object}
  * @return {Array}
  */
-var getKeys;
+var getKeys = function(obj){
+  return Object.keys(obj);
+}
 
 /* #sumAllPositive
  *
@@ -234,7 +242,15 @@ var getKeys;
  * @param {String}
  * @return {Number}
  */
-var sumAllPositive;
+var sumAllPositive = function(arr){
+  let sum = 0;
+  for(let i = 0; i < arr.length; i++){
+    if(arr[i] > 0){
+      sum+= arr[i];
+    }
+  }
+  return sum;
+}
 
 /* #stringCountBelowThree
  *
@@ -243,7 +259,15 @@ var sumAllPositive;
  * @param {Array}
  * @return {Number}
  */
-var stringCountBelowThree;
+var stringCountBelowThree = function(arr){
+  let count = 0;
+  for(let i = 0; i < arr.length; i++){
+    if(arr[i].length <= 3){
+      count++
+    }
+  }
+  return count;
+}
 
 /* #countObjects
  *
@@ -252,7 +276,9 @@ var stringCountBelowThree;
  * @param {Array}
  * @return {Number}
  */
-var countObjects;
+var countObjects = function(arr){
+  return arr.length;
+}
 
 /* #getObjectKeys
  *
@@ -261,7 +287,9 @@ var countObjects;
  * @param {Object}
  * @return {Array}
  */
-var getObjectKeys;
+var getObjectKeys = function(obj){
+  return Object.keys(obj);
+}
 
 /* #getObjectValues
  *
@@ -270,7 +298,9 @@ var getObjectKeys;
  * @param {Object}
  * @return {Array}
  */
-var getObjectValues;
+var getObjectValues = function(obj){
+  return Object.values(obj);
+}
 
 /* #makeObject
  *
@@ -280,7 +310,11 @@ var getObjectValues;
  * @param {String}
  * @return {Object}
  */
-var makeObject;
+var makeObject = function(key, value){
+  let obj = {};
+  obj[key] = value;
+  return obj;
+}
 
 /* #makeObjectReverse
  *
@@ -290,7 +324,11 @@ var makeObject;
  * @param {String}
  * @return {Bool}
  */
-var makeObjectReverse;
+var makeObjectReverse = function(value, key){
+  let obj = {};
+  obj[key] = value;
+  return obj;
+}
 
 /* #tupleToObject
  *
@@ -463,20 +501,20 @@ module.exports = {
   lengthOfLast: lengthOfLast,
   sumBelowTen: sumBelowTen,
   moreThanTenLetters: moreThanTenLetters,
-  multiplyAll: null,
-  getKeys: null,
-  sumAllPositive: null,
-  stringCountBelowThree: null,
-  countObjects: null,
-  getObjectKeys: null,
-  getObjectValues: null,
-  makeObject: null,
-  makeObjectReverse: null,
+  multiplyAll: multiplyAll,
+  getKeys: getKeys,
+  sumAllPositive: sumAllPositive,
+  stringCountBelowThree: stringCountBelowThree,
+  countObjects: countObjects,
+  getObjectKeys: getObjectKeys,
+  getObjectValues: getObjectValues,
+  makeObject: makeObject,
+  makeObjectReverse: makeObjectReverse,
   tupleToObject: null,
   tupleToObjectReverse: null,
   strToKeys: null,
   getValues: null,
-  getKeys: null,
+  getKeys: getKeys,
   objectToArray: null,
   arrayToObject: null,
   arraysToObject: null,
