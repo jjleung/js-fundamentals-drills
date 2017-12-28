@@ -337,7 +337,11 @@ var makeObjectReverse = function(value, key){
  * @param {Array}
  * @return {Object}
  */
-var tupleToObject;
+var tupleToObject = function(arr){
+  let obj = {};
+  obj[arr[0]] = arr[1];
+  return obj;
+}
 
 /* #tupleToObjectReverse
  *
@@ -346,7 +350,11 @@ var tupleToObject;
  * @param {Array}
  * @return {Object}
  */
-var tupleToObjectReverse;
+var tupleToObjectReverse = function(arr){
+  let obj = {};
+  obj[arr[1]] = arr[0];
+  return obj;
+}
 
 /* #strToKeys
  *
@@ -355,7 +363,13 @@ var tupleToObjectReverse;
  * @param {Array}
  * @return {Object}
  */
-var strToKeys;
+var strToKeys = function(arr){
+  let obj = {};
+  for(let i = 0; i < arr.length; i++){
+    obj[arr[i]] = 0;
+  }
+  return obj;
+}
 
 /* #getValues
  *
@@ -364,7 +378,9 @@ var strToKeys;
  * @param {Object}
  * @return {Array}
  */
-var getValues;
+var getValues = function(obj){
+  return Object.values(obj);
+}
 
 /* #getKeys
  *
@@ -373,7 +389,9 @@ var getValues;
  * @param {Object}
  * @return {Array}
  */
-var getKeys;
+var getKeys = function(obj){
+  return Object.keys(obj);
+}
 
 /* #objectToArray
  *
@@ -383,7 +401,18 @@ var getKeys;
  * @param {Object}
  * @return {Array}
  */
-var objectToArray;
+var objectToArray = function(obj){
+  let keys = Object.keys(obj);
+  let vals = Object.values(obj);
+  let outArr = []
+  for(let i = 0; i < keys.length; i++){
+    let temp = [];
+    temp[0] = keys[i];
+    temp[1] = vals[i];
+    outArr.push(temp);
+  }
+  return outArr;
+}
 
 /* #arrayToObject
  *
@@ -393,7 +422,14 @@ var objectToArray;
  * @param {Array}
  * @return {Object}
  */
-var arrayToObject;
+var arrayToObject = function(arr){
+  let obj = {};
+  for(let i = 0; i < arr.length; i++){
+    obj[arr[i]] = false;
+  }
+
+  return obj;
+}
 
 /* #arraysToObject
  *
@@ -404,7 +440,13 @@ var arrayToObject;
  * @param {Array}
  * @return {Object}
  */
-var arraysToObject;
+var arraysToObject = function(kees, vals){
+  let obj = {};
+  for(let i = 0; i < kees.length; i++){
+    obj[kees[i]] = vals[i];
+  }
+  return obj;
+}
 
 /* #objectsToTuples
  *
@@ -414,7 +456,27 @@ var arraysToObject;
  * @param {Object}
  * @return {Array}
  */
-var objectsToTuples;
+var objectsToTuples = function(obj1, obj2){
+  let arr = [];
+  let kees1 = Object.keys(obj1);
+  let vals1 = Object.values(obj1);
+  for(let i = 0; i < kees1.length; i++){
+    let temp = [];
+    temp[0] = kees1[i];
+    temp[1] = vals1[i];
+    arr.push(temp);
+  }
+  let kees2 = Object.keys(obj2);
+  let vals2 = Object.values(obj2);
+  for(let j = 0; j < kees2.length; j++){
+    let temp = [];
+    temp[0] = kees2[j];
+    temp[1] = vals2[j];
+    arr.push(temp);
+  }
+
+  return arr;
+}
 
 /* #mapArrayValues
  *
@@ -423,7 +485,13 @@ var objectsToTuples;
  * @param {Array}
  * @return {Object}
  */
-var mapArrayValues;
+var mapArrayValues = function(arr){
+  let obj = {};
+  for(let i = 0; i < arr.length; i++){
+    obj[arr[i]] = true;
+  }
+  return obj;
+}
 
 /* #mapStringCounts
  *
@@ -434,7 +502,17 @@ var mapArrayValues;
  * @param {Array}
  * @return {Object}
  */
-var mapStringCounts;
+var mapStringCounts = function(arr){
+  let obj = {};
+  for(let i = 0; i < arr.length; i++){
+    if(arr[i].length >= 5){
+      obj[arr[i]] = true;
+    }else{
+      obj[arr[i]] = false;
+    }
+  }
+  return obj;
+}
 
 /* #arrayToObjectNums
  *
@@ -444,7 +522,13 @@ var mapStringCounts;
  * @param {Array}
  * @return {Object}
  */
-var arrayToObjectNums;
+var arrayToObjectNums = function(arr){
+  let obj = {};
+  for(let i = 0; i < arr.length; i++){
+    obj[arr[i]] = true;
+  }
+  return obj;
+}
 
 /* #stringToKeys
  *
@@ -453,7 +537,14 @@ var arrayToObjectNums;
  * @param {String}
  * @return {Object}
  */
-var stringToKeys;
+var stringToKeys = function(str){
+  let splitString = str.split("");
+  let obj = {};
+  for(let i = 0; i < splitString.length; i++){
+    obj[splitString[i]] = true;
+  }
+  return obj;
+}
 
 /* #charCountMap
  *
@@ -463,7 +554,13 @@ var stringToKeys;
  * @param {Array}
  * @return {Object}
  */
-var charCountMap;
+var charCountMap = function(arr){
+  let obj = {};
+  for(let i = 0; i < arr.length; i++){
+    obj[arr[i]] = arr[i].length;
+  }
+  return obj;
+}
 
 /* #frequencyMap
  *
@@ -472,7 +569,17 @@ var charCountMap;
  * @param {String}
  * @return {Bool}
  */
-var frequencyMap;
+var frequencyMap = function(arr){
+  let obj = {};
+  for(let i = 0; i < arr.length; i++){
+    if(obj[arr[i]]){
+      obj[arr[i]]++;
+    }else {
+      obj[arr[i]] = 1;
+    }
+  }
+  return obj;
+}
 
 /* #tupleConvertToObject
  *
@@ -482,7 +589,13 @@ var frequencyMap;
  * @param {String}
  * @return {Bool}
  */
-var tupleConvertToObject;
+var tupleConvertToObject = function(arr){
+  let obj = {};
+  for(let i = 0; i < arr.length; i++){
+    obj[arr[i][0]] = arr[i][1];
+  }
+  return obj;
+}
 
 
 module.exports = {
@@ -510,20 +623,20 @@ module.exports = {
   getObjectValues: getObjectValues,
   makeObject: makeObject,
   makeObjectReverse: makeObjectReverse,
-  tupleToObject: null,
-  tupleToObjectReverse: null,
-  strToKeys: null,
-  getValues: null,
+  tupleToObject: tupleToObject,
+  tupleToObjectReverse: tupleToObjectReverse,
+  strToKeys: strToKeys,
+  getValues: getValues,
   getKeys: getKeys,
-  objectToArray: null,
-  arrayToObject: null,
-  arraysToObject: null,
-  objectsToTuples: null,
-  mapArrayValues: null,
-  mapStringCounts: null,
-  arrayToObjectNums: null,
-  stringToKeys: null,
-  charCountMap: null,
-  frequencyMap: null,
-  tupleConvertToObject: null
+  objectToArray: objectToArray,
+  arrayToObject: arrayToObject,
+  arraysToObject: arraysToObject,
+  objectsToTuples: objectsToTuples,
+  mapArrayValues: mapArrayValues,
+  mapStringCounts: mapStringCounts,
+  arrayToObjectNums: arrayToObjectNums,
+  stringToKeys: stringToKeys,
+  charCountMap: charCountMap,
+  frequencyMap: frequencyMap,
+  tupleConvertToObject: tupleConvertToObject
 }
